@@ -31,6 +31,19 @@ a:hover {
   margin: 0;
 }
 
+h1 {
+  grid-area: heading;
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -.075rem;
+  transition: font-size .5s;
+
+  a:link, a:visited, a:hover, a:focus, a:active {
+    color: #000;
+  }
+}
+
 h2 {
   font-size: 2rem;
   font-weight: normal;
@@ -143,19 +156,6 @@ header {
   align-items: end;
   margin: 6rem auto 0 auto;
   padding: 0 2rem 0 2rem;
-
-  h1 {
-    grid-area: heading;
-    margin: 0;
-    font-size: 4rem;
-    font-weight: 700;
-    letter-spacing: -.075rem;
-    transition: font-size .5s;
-
-    a:link, a:visited, a:hover, a:focus, a:active {
-      color: #000;
-    }
-  }
 
   #tag-line {
     grid-area: tag-line;
