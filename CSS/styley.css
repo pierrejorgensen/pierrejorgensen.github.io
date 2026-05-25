@@ -74,6 +74,7 @@ header, main {
 
 main {
   grid-area: main;
+  margin-top: 6rem;
 }
 
 #menu-open, #menu-close {
