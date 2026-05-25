@@ -76,36 +76,6 @@ main {
   grid-area: main;
   margin-top: 5rem;
 }
-
-#menu-open, #menu-close {
-  display: none;
-  width: 0;
-  position: absolute;
-  top: 10px;
-  right: 1rem;
-  height: 30px;
-  padding: 0 0 0 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 30px 20px;
-  background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjG2ONLE69SKwnUtGHFXbjlNw1u7LjC2-E9-3TtC7rUhIQ3DlMyS0U0tUaiuX7uw2ID-fGeHx671fK3daJs4KdoQ9o3yfvQAoTma00lu-gx_nK-oH2CcdX88BAU7zLXVt1z_ijVZygypw-vlS7CW8IYTttd5RR06rNRrTri1fV2X8MVBIXyIPZx45CjXU/s200/Menu.png);
-  overflow: hidden;
-  border: 0 none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-#menu-close {
-  background-size: 20px 20px;
-  background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwOGfgDZd1-46TDwdbLp6kDURErWXce1y_pd-E1gQV3pXLJ0NrgjltdyJrDXIUmyXCHV0GAQBFm1JKiPv_br6GP-KN8wRQoDpmCDy1Mbn7ln7ju1D0Np_InRfBNR-suZDQPajvSsC5EIl2D6bAchS9kW6C5DhKjFFs39qXwWfaXV8sZ5HEMuSarY3EeHQ/s200/Close.png);
-}
-
-.Profile .profile-img {
-  margin: 2rem 0 0 0;
-  width: 100%;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-}
-
 header {
   display: grid;
   grid-template-areas:
