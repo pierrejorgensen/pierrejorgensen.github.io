@@ -1,0 +1,136 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+  <link rel="canonical" href="https://pierrejorgensen.github.io/p/work-one-product-detail-feature.html">
+  <meta property="og:url" content="https://pierrejorgensen.github.io/p/work-one-product-detail-feature.html">
+  <meta property="og:title" content="Work: A product-detail interactive feature">
+  <meta property="og:description" content="The context: The site sells promotional swag. You&#x27;re not just shopping products but products decorated with your logo or...">
+  <title>Work: A product-detail interactive feature</title>
+</head>
+<body>
+  {% include header.html %}
+
+  <main>
+    <table>
+      <tr>
+        <th scope="row">The context:</th>
+        <td>
+          The site sells promotional swag. You're not just shopping products but products decorated with your logo or some other artwork.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">The feature:</th>
+        <td>
+          We're looking at a product detail page (PDP), a staple of e-commerce, but with an added layer of interaction &mdash; you're adding one or more graphics to the product. The entire conversion funnel pivots on this one feature.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">The challenge:</th>
+        <td>
+          Products have up to two &ldquo;decoration&rdquo; or &ldquo;imprint&ldquo; areas. When there are two, you can choose one or both. The UI needs to keep clear what your options are, where you're applying an image, and what you have applied.
+          Now add new functionality &mdash; images you upload are saved. We need to make that library of images visible without cluttering up the page.
+        </td>
+      </tr>
+    </table>
+
+    <div class="image-group image-caption-group full-width">
+      <a href="/Assets/work-one-product-detail-feature/upload-current-design.png">
+        <img alt="Spoiler! This is where we end up, but how did we get here, and why?" src="/Assets/work-one-product-detail-feature/upload-current-design.png">
+      </a>
+      <span class="image-caption">Spoiler! This is where we end up, but how did we get here, and why?</span>
+    </div>
+
+    <h3>First iteration(s)</h3>
+    <p>First, a little background. You can't just slap a logo anywhere on a product. Picture a <em>decoration area</em> as an invisible rectangle with fixed dimensions and a fixed position on the product. On an apparel item there may be 12-15 available decoration areas.</p>
+    <p>So why can't you just let the buyer choose from any of them? Maybe you want a logo on the left sleeve and a large graphic on the back.</p>
+
+
+    <div class="image-group image-caption-group pull-left">
+      <img alt="Something like this, perhaps?" src="/Assets/work-one-product-detail-feature/pick-any-deco-area.png">
+      <span class="image-caption">Something like this, perhaps?</span>
+    </div>
+
+    <p>I thought of that, roughed it out, and built an an interactive proof of concept for picking one or more of any available areas. Technical contstraints, no &mdash; this could be done on the existing platform.</p>
+    <p>However, this is where design is a dance with Product and business strategy: The more options we'd offer, the higher the cost. Cost on the back end in setup. Cost on the front end in production. Who would cover that cost? You, the consumer.</p>
+    <p>Moreover, more choices isn't necessarily a good thing. It would mean a more complicated purchase flow. Choices are <strong>friction</strong>. Sure enough, competitors offer lots of options, but their user journeys also involve a lot more decisions, and your out-the-door price depends on those choices.</p>
+
+    <div class="image-group image-caption-group pull-right">  
+      <img alt="Simple choice(s)." src="/Assets/work-one-product-detail-feature/pick-two-deco-areas.png">
+      <span class="image-caption">Simple choice(s).</span>
+    </div>
+    <p>The final direction was to, for each product, offer up to two curated decoration locations. We could now uptimize the UI for a clear business strategy.</p>
+    <ul>
+      <li>Choices are kept dead simple.</li>
+      <li>We can offer you a predictable, up-front price.</li>
+      <li>Checkboxes make it visible and clear which area(s) you have decorated.</li>
+    </ul>
+    <p>When I user tested this in moderated sessions, all my participants breezed right through the mechanics of decorating the product. This part of the UI and the purchase flow was zero friction.</p>
+
+    <h3>Complexities arise</h3>
+    <p>There's a glaring gap in functionality above: Decorating <em>one</em> product <em>one</em> time takes virtually no cognitive load. It's a good interaction, but the artwork you upload doesn't stick. It's not <em>saved</em>.</p>
+
+    <div class="image-group image-caption-group pull-left">
+      <img alt="New functionality: Images you upload are now saved." src="/Assets/work-one-product-detail-feature/with-logos-saved.png">
+      <span class="image-caption">New functionality: Images you upload are now saved.</span>
+    </div>
+
+    <p>We knew from research &mdash; surveys and in-depth interviews &mdash; that our customers were often invested in the look-and-feel of the product. Refilling your supply of pens with your logo on them is one thing, it's quite another when you fret over whether the recipients will like the swag you're giving out. Ultimately it's the same uncertainty you have when you give a gift: Will they like it? Will this purchase make <em>me</em> look good?</p>
+    <p>What that means is the purchase journey involves trying out multiple products. Browse, pick, decorate, browse, pick another, decorate, compare, browse, and so on. That is tedious when you have to upload the same artwork over and over.</p>
+    <p>New functionality is built out, and we now have a &ldquo;locker&rdquo; holding images you upload. For <strong>conversion rates</strong> we've now reduced friction considerably, and for <strong>retention</strong> we've added an incentive to create an account, so that your images are saved between sessions.</p>
+    <p>There is a catch: We see in user tests and sessions that many customer don't notice that &ldquo;drawer&rdquo;. They don't know their artwork is saved, so we want your uploaded images to be visible by default. No drawer.</p>
+    <p>We have two obstacles. One, that's a redesign of the UI. One, we don't just want to jam thumbnails into the current visual hierarchy. Two, pulling in those thumbnails for every page load will tax the servers. Customers will pay that tax in the form of longer load times.</p>
+    <h3>The solution</h3>
+
+    <div class="image-group image-caption-group pull-right">
+      <img alt="Upload once, apply to any decoration area." src="/Assets/work-one-product-detail-feature/single-upload-field.png">
+      <span class="image-caption">Upload once, apply to any decoration area.</span>
+    </div>
+
+    <p>Load times are a technical problem that's being solved, so after a napkin sketch or two I wireframe up a new solution. Why do you need an upload widget for each decoration area? Everything you upload goes in a &ldquo;bucket&rdquo; now. Your artwork isn't tied to one decoration area on one product.</p>
+    <p>Final UI went through several iterations between myself, our CRO manager, our graphic designer, and our UI designer/developer. I had design goals, or constraints, if you will:</p>
+    <ul>
+      <li>It must be clear which area(s) you have decorated.</li>
+      <li>It must be clear which image you have selected for a given area.</li>
+      <li>It must be clear how to remove an image from an area.</li>
+    </ul>
+    <p>When you are ready to click Add to Cart, you need to feel confident you know exactly what's going to appear where on the product. Both locations are typically not in view at the same time. When checkboxes showed what you had selected, that's a no-brainer &mdash; &ldquo;Centered on Back&rdquo; is either checked or it isn't. Changing to tabs, though, means one is always hidden, so you need some sort of visual indication what you've applied where.</p>
+
+    <div class="image-group image-caption-group full-width">
+      	<a href="/Assets/work-one-product-detail-feature/Final-version.png">
+          	<img alt="The final, live UI keeps clear what you&#x27;ve uploaded, what you&#x27;ve selected, and where you&#x27;ve applied it on the product." src="/Assets/work-one-product-detail-feature/Final-version.png">
+      </a>
+      <span class="image-caption">The final, live UI keeps clear what you've uploaded, what you've selected, and where you've applied it on the product.</span>
+    </div>
+    <p>The interactions are now simple and clear, and they make it easy to play around with options. Add one graphic to the chest, see what that looks like, try it large on the back, remove, try another, and so on.</p>
+
+    <div class="image-group image-caption-group full-width">
+      <a href="/Assets/work-one-product-detail-feature/upload-in-progress.png">
+        <img alt="When you select an uploaded image, you get immediate feedback in the form of an animated uploader." src="/Assets/work-one-product-detail-feature/upload-in-progress.png">
+      </a>
+      <span class="image-caption">When you select an uploaded image, you get immediate feedback in the form of an animated uploader.</span>
+    </div>
+
+    <p>You might notice the upload artwork is larger than you're used to seeing thumbnails. Doesn't that eat up a lot of space? Yes, it does, but consider these design goals:</p>
+    <ul>
+      <li>Uploaded artwork comes in all kinds of aspect ratios. If we don't line them up neatly, your collection will be a jumbled mess and hard to scan.</li>
+      <li>Horizontal logos squeezed into a fixed-width area would be very small and hard to see unless that area is wide enough.</li>
+      <li>You may have multiple logos with subtle differences, like different taglines or location names. You need those logos big enough that you can easily see those differences.</li>
+    </ul>
+
+    <div class="image-group image-caption-group full-width">
+      <a href="/Assets/work-one-product-detail-feature/with-multiple-logos.png">
+        <img alt="Did we consider mobile? Yes, of course." src="/Assets/work-one-product-detail-feature/with-multiple-logos.png">
+      </a>
+      <span class="image-caption">Did we consider mobile? Yes, of course.</span>
+    </div>
+
+    <p><strong>Footnote:</strong> Why did we not design for mobile first? Well, &ldquo;mobile first&rdquo; is not a universal law, it's a useful approach <em>where appropriate</em>. In the case of this site, it is not.</p>
+    <p>The audience for these products are primarily shopping and buying on desktops. Why? Because (a) these are purchases you make <em>for work, at work</em> and (b) you're not just buying a thing, you're customizing, and the cramped quarters of a phone screen just isn't well suited for that. For one thing, buyers tend to be invested in the <em>look</em> of the product, and a phone screen is just too small to get a nice, big view of it.</p>
+    <p>Sure enough, stats and research consistently showed that mobile devices were mainly used for browsing and discovery, not the final purchase. You're most likely to poke around in the collections on your phone to get ideas and narrow down what you want to buy, then return at your desk, using a desktop browser to set up the product(s). </p>
+  </main>
+</body>
+</html>

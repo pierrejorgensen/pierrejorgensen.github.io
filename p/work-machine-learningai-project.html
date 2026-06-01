@@ -1,0 +1,116 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+  <link rel="canonical" href="https://pierrejorgensen.github.io/p/work-machine-learningai-project.html">
+  <meta property="og:url" content="https://pierrejorgensen.github.io/p/work-machine-learningai-project.html">
+  <meta property="og:title" content="Work: Machine-learning/AI project">
+  <meta property="og:description" content="What we&#x27;ve got here: A natural-language and machine-learning proof of concept built out under tight wraps; it&#x27;ll be a first in this market n...">
+  <title>Work: Machine-learning/AI project</title>
+</head>
+<body>
+  {% include header.html %}
+
+  <main>
+    <p>What we've got here: A natural-language and machine-learning proof of concept built out under tight wraps; it'll be a first in this market niche, and nobody wanted the competition to catch wind. The drawback? UX was only now getting involved, and the corner office wanted a beta launch, like, yesterday.</p>
+    <h3>The now: What we have to work with</h3>
+
+    <div class="three-step">
+      <div class="image-group">
+        <a href="/Assets/work-machine-learningai-project/7f3b8e84524487.5d5f50d95e180.png">
+          <img alt="Existing ML compliance tool splash screen before redesign." src="/Assets/work-machine-learningai-project/7f3b8e84524487.5d5f50d95e180.png">
+        </a>
+      </div>
+      <div class="image-group">
+        <a href="/Assets/work-machine-learningai-project/06a3a884524487.5d5f50d95ecf4.png">
+          <img alt="Project workspace showing color-coded control standards and suggested document matches." src="/Assets/work-machine-learningai-project/06a3a884524487.5d5f50d95ecf4.png">
+        </a>
+      </div>
+      <div class="image-group">
+        <a href="/Assets/work-machine-learningai-project/a1146b84524487.5d5f50d95e554.png">
+          <img alt="Dense project detail view with pills and multicolor status indicators." src="/Assets/work-machine-learningai-project/a1146b84524487.5d5f50d95e554.png">
+        </a>
+      </div>
+    </div>
+
+    <p>Turns out there are projects, which contain documents referred to as <em>control standards</em>, referred to by an alphanumeric code formatted NNNN-1. The tool's value is to read documents uploaded to a project and suggesting interrelationships between them, referred to as <em>matches</em>. Identifying these interrelationships is work that otherwise takes analysts days and weeks of reading and cross-referencing.</p>
+    <p>What stood out is, I was unclear where to even start. There's too much going on in this UI and very little to organize it into some sort of hierarchy. Once you'd created your first project from the splash screen, it wasn't obvious at all (a) that you would need to create a new project to analyze a new set of standards or (b) how to go about doing this. There were also too much information encoded in colors &mdash; red, green, blue, orange, and white &mdash; to be useful at a glance.</p>
+
+    <h3>Triage and prioritize for quick, incremental improvement</h3>
+    <p>Time is the constraint here, but, fortunately, all problems are not created equal. First priority needs to be issues that will most negatively effect the experience of beta users. Poor execution can easily kill an otherwise excellent product idea, so we don't want usability to get in the way of evaluating the value of the product. On the other hand,&#160;we will get invaluable real-life observation, metrics, and feedback from the initial beta users, so getting to market quickly is as valuable for me as a designer as it is for the organization.</p>
+
+    <p>Taking stock, what we do have is good research and a product manager who has domain expertise as well as in-depth knowledge of our target users; we know who they are, what they do, how they work today, and how this product can add value for them.</p>
+
+    <p>A few quick roughs get everyone on the same page.</p>
+
+    <div class="image-group full-width">
+      <a href="/Assets/work-machine-learningai-project/new-ml-product-wire-2.png">
+        <img alt="Wireframe of landing page with project list and filters." src="/Assets/work-machine-learningai-project/new-ml-product-wire-2.png">
+      </a>
+      <a href="/Assets/work-machine-learningai-project/new-ml-product-wire-1.png">
+          <img alt="Wireframe of guided flow for creating a new analysis project." src="/Assets/work-machine-learningai-project/new-ml-product-wire-1.png">
+      </a>
+    </div>
+
+    <p>You need ... </p>
+    <ul>
+      <li>... access to your projects on the landing page.</li>
+      <li>... a guided experience to create new projects.</li>
+      <li>... a workspace that lets you focus on the task at hand: Reviewing matches suggested by the system between text-heavy legal documents and internal rules, called control standards.</li>
+      <li>... to focus your attention on reading and comprehension of the documents themselves instead of trying to sort out what's what in the UI.</li>
+      <li>... filters to narrow down your projects without having to scroll and scan to find the one you need.</li>
+    </ul>
+
+    <h3>Design fast</h3>
+    <p>While working on a separate track to design a more optimal future experience and align the product with the rest of our suite, I work directly with the front-end developer to add as many improvements as we can. We add a new guided experience for creating a new project.</p>
+
+    <div class="image-group full-width">
+      	<a href="/Assets/work-machine-learningai-project/guided-experience.png">
+          <img alt="Guided experience for creating a new project in the ML compliance tool." src="/Assets/work-machine-learningai-project/guided-experience.png">
+      </a>
+    </div>
+    <p>The rest of the product suite uses Google's Material design components. We can't implement that short term, but we can start moving our form controls in that direction visually.</p>
+
+
+    <div class="image-group image-caption-group pull-right">
+      <a href="/Assets/work-machine-learningai-project/pills.png">
+        <img alt="The pills were asked to carry too much. What do the colors mean? What happens if you&#x27;re red-green color blind?" src="/Assets/work-machine-learningai-project/pills.png">
+      </a>
+      <span class="image-caption">The pills were asked to carry too much. What do the colors mean? What happens if you're red-green color blind?</span>
+    </div>
+
+    <p>More importantly, on the project page, which is the workspace of the application, we have &ldquo;pills&rdquo; pressed into service as both form controls and to present information, encoded in several combinations of color. The &ldquo;pills&rdquo; are also spatially separated from the contents they affect. I clean this up and add some visual hierarchy.</p>
+
+    <p>I move the &ldquo;pills&rdquo; along a baseline, so that I can spatially associate them with content. Instead of using multiple colors to indicate value, we use a simple square with five states: Empty, 1/3 full, 2/3 full, full, and completed, indicated with a checkmark. Any more granular value can be given as an exact numeric value in the details; you don't need that level of precision when scanning the sections. I remove the complexity of having them serve as form control as well by moving that functionality to the details section and exposing the choices as radio buttons.</p>
+
+    <div class="image-group full-width">
+      <a href="/Assets/work-machine-learningai-project/projects-screen.png">
+        <img alt="Redesigned project workspace with clearer hierarchy and simplified status indicators." src="/Assets/work-machine-learningai-project/projects-screen.png">
+      </a>
+    </div>
+
+    <h3>Work six and 12 months ahead</h3>
+    <p>Meanwhile, I'm also working on a roadmap for a post-beta release.</p>
+
+    <div class="image-group full-width">
+      <a href="/Assets/work-machine-learningai-project/future-design-1.png">
+        <img alt="Work six and 12 months ahead: future design 1" src="/Assets/work-machine-learningai-project/future-design-1.png">
+      </a>
+    </div>
+
+    <p>I'm taking the product to a clean, white design using Google's Material component library and conforming to the company's brand guidelines. This is the design standard of the other products in our suite, but it's also the right choice for this purpose and this audience: Reversed text and a "dark mode" is not optimal for an audience of lawyers in a tool the primary purpose of which is to make sections of legal text available for reading, comparison,&#160;and comprehension.</p>
+
+    <div class="image-group full-width">
+      <a href="/Assets/work-machine-learningai-project/future-design-2.png">
+        <img alt="Future design with sectioned layout and tabular control standards for easier scanning." src="/Assets/work-machine-learningai-project/future-design-2.png">
+      </a>
+    </div>
+
+    <p>I'm also breaking out of the &ldquo;pill&rdquo; format. The original format represented each control standard with an ID, which has no meaning unless you memorize these IDs&#160;by the hundreds. Instead, I lay out the structure of the project in sections, each with its associated suggested mappings. Each control is presented as a row in a table, which allows me to expose more information -- name, summary, date created, and so on. That serves several purposes: It makes the project easier to scan, it gives you enough information to pick the control you want to work on, and it allows you to get an overview without digging into individual controls one at a time.</p>
+    <p>There are also major experience speed bumps that are functional in nature and have to do with helping our users assemble the right files for import into the tool in the first place as well as integrating that import process, and exporting the output, into a parent product. Those are the kinds of user experience&#160;problems I work through at a product management and requirements level and serve as a reminder that the scope of UX is wider than strictly UI.</p>
+  </main>
+</body>
+</html>
