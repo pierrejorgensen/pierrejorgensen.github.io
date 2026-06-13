@@ -285,7 +285,10 @@ a:hover .opens-in-new-tab {
 
 table {
   border: 0 none;
-  border-spacing: 1rem;
+  border-collapse: separate;
+  border-spacing: 1rem 0;
+  margin-left: -1rem;
+  margin-right: -1rem;
 
   th, td {
     padding: 1rem;
@@ -361,14 +364,7 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
     max-width: none;
     margin-right: 0;
     float: none;
-    width: 100%;
-    float: none;
   }
-}
-
-.image-group.image-caption-group.full-width {
-  width: 100%;
-  clear: both;
 }
 
 .image-group img {
