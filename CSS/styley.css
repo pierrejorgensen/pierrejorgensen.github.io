@@ -39,9 +39,12 @@ h1 {
   }
 }
 
+h2, h3 {
+  font-weight: 300;
+}
+
 h2 {
-  font-size: 2rem;
-  font-weight: normal;
+  font-size: 2.5rem;
   padding-bottom: 1rem;
   letter-spacing: -.05rem;
 
@@ -51,9 +54,8 @@ h2 {
 }
 
 h3 {
-  margin-top: 2rem;
+  margin: 2rem 0 .25rem 0;
   font-size: 1.5rem;
-  font-weight: normal;
 }
 
 ul {
@@ -79,7 +81,7 @@ header {
 
 main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) min(45rem, 100%) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) min(56rem, 100%) minmax(0, 1fr);
   width: 100%;
   max-width: none;
   margin: 5rem 0 0 0;
@@ -92,8 +94,8 @@ main > * {
   grid-column: 2;
 }
 
-main > .image-group.full-width,
-main > .splits:has(.image-group.full-width) {
+main > .full-width,
+main > .splits:has(.full-width) {
   grid-column: 1 / -1;
   width: min(72rem, 100%);
   max-width: 72rem;
@@ -283,16 +285,20 @@ a:hover .opens-in-new-tab {
 
 table {
   border: 0 none;
+  border-spacing: 1rem;
 
   th, td {
     padding: 1rem;
     vertical-align: top;
     text-align: left;
+    border-top: 1px solid #666;
   }
 
   th {
     padding-left: 0;
     min-width: 7.5rem;
+    white-space: nowrap;
+    border-top-width: 2px;
   }
 
   td {
@@ -333,8 +339,6 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
 }
 
 .image-group {
-  float: left;
-  position: relative;
   margin: 0 1.5rem 2rem 0;
 
   &.pull-right {
@@ -343,7 +347,6 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
   }
 
   &.image-caption-group {
-    max-width: 310px;
     background-color: #f6f6f6;
     padding: 1rem;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
