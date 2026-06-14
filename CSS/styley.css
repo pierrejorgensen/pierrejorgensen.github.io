@@ -100,6 +100,14 @@ main > .splits:has(.full-width) {
   width: min(72rem, 100%);
   max-width: 72rem;
   justify-self: center;
+
+  &.hero {
+    height: 10rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
+    background-image: url(/Assets/work-information-architecture/First-live-nav.png);
+    background-size: cover;
+  }
 }
 
 header {
@@ -128,7 +136,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin: .5rem 0 .7rem 0;
+    margin: .5rem 0 0 0;
     border-top: 3px solid #e3660e;
     padding-top: .25rem;
 
