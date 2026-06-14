@@ -101,13 +101,17 @@ main > .splits:has(.full-width) {
   max-width: 72rem;
   justify-self: center;
 
-  &.hero {
-    height: 10rem;
-    margin-bottom: 4rem;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
-    background-image: url(/Assets/work-information-architecture/First-live-nav.png);
-    background-size: cover;
-  }
+}
+
+.hero {
+  height: 10rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
+  background-image: url(/Assets/work-information-architecture/First-live-nav.png);
+  background-size: cover;
+}
+#product-detail .hero {
+  background-image: url(/Assets/work-one-product-detail-feature/with-multiple-logos.png);
 }
 
 header {
