@@ -120,6 +120,9 @@ main > .splits:has(.full-width) {
 #machine-learning .hero {
   background-image: url(/Assets/work-machine-learningai-project/projects-screen.png);
 }
+#fitness-tracking .hero {
+  background-image: url(/Assets/work-fitness-tracking-application/connect-home.png);
+}
 
 header {
   display: grid;
@@ -345,7 +348,7 @@ table {
 .three-step {
   width: 100%;
   column-count: 3;
-  column-gap: 2rem;
+  column-gap: 1rem;
 
   .image-group {
     padding: 0px;
