@@ -94,13 +94,17 @@ main > * {
   grid-column: 2;
 }
 
+.prose {
+  grid-column: 2;
+  display: flow-root;
+}
+
 main > .full-width,
 main > .splits:has(.full-width) {
   grid-column: 1 / -1;
   width: min(72rem, 100%);
   max-width: 72rem;
   justify-self: center;
-
 }
 
 .hero {
@@ -142,7 +146,7 @@ header {
     justify-content: flex-end;
     margin: .5rem 0 0 0;
     border-top: 3px solid #e3660e;
-    padding-top: .25rem;
+    padding: .25rem 0 .35rem 0;
 
     a {
       color: #000;
@@ -356,6 +360,17 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
 .image-group {
   margin: 0 1.5rem 2rem 0;
 
+  &.pull-left,
+  &.pull-right {
+    width: 50%;
+    box-sizing: border-box;
+  }
+
+  &.pull-left {
+    float: left;
+    margin: 0 1.5rem 2rem 0;
+  }
+
   &.pull-right {
     float: right;
     margin: 0 0 2rem 1.5rem;
@@ -387,6 +402,21 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
   float: none;
   max-width: 310px;
   position: relative;
+}
+
+.image-group.pull-left img,
+.image-group.pull-right img {
+  width: 100%;
+  max-width: none;
+}
+
+@media screen and (max-width: 860px) {
+  .image-group.pull-left,
+  .image-group.pull-right {
+    float: none;
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
 }
 
 .image-group a:not(:first-child) img {
