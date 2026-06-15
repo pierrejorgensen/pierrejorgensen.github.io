@@ -98,6 +98,29 @@ header {
   font-weight: normal;
 }
 
+footer {
+  max-width: var(--width-site-max);
+  margin: 4rem auto 2rem auto;
+  padding: 0 2rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  padding: 1rem 0 0 0;
+  border-top: 3px solid var(--color-accent);
+}
+
+footer a:link,
+footer a:visited {
+  color: var(--color-text);
+}
+
+footer a:hover {
+  color: var(--color-accent-hover);
+}
+
 main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) min(var(--width-prose), 100%) minmax(0, 1fr);
