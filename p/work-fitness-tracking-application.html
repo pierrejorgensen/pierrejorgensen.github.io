@@ -53,63 +53,61 @@ layout: none
           <a href="/Assets/work-fitness-tracking-application/connect-cards.png">
             <img alt="The basic unit: An activity." src="/Assets/work-fitness-tracking-application/connect-cards.png">
           </a>
-          <span class="image-caption">The basic container: An activity.</span>
+          <span class="image-caption">The basic building block: An activity.</span>
           <a href="/Assets/work-fitness-tracking-application/connect-stats.png">
             <img alt="Activity card layout rearranged to show different stat combinations." src="/Assets/work-fitness-tracking-application/connect-stats.png">
           </a>
-          <span class="image-caption">That basic container is flexible; we can rearrange its elements for
-            different purposes.</span>
+          <span class="image-caption">That basic building block is flexible; we can rearrange its elements for different purposes.</span>
         </div>
         <div class="prose-body">
-        <p>
-          Let's start with the basic blocks. The device records an activity &mdash; a
-          run, a ride, a hike. That's your basic &ldquo;unit&rdquo;.
-        </p>
-        <p>
-          Should it be a &ldquo;page&rdquo;? Maybe, but the classic list page &gt;
-          detail page model would be clunky here. If you're just done with a run,
-          where are you most likely to be? On your phone. You won't want to log in,
-          see a list of runs, then click the newest one to see how you did.
-        </p>
-        <p>
-          No, let's contain the most important stats in a card format and show it to
-          you right as you log in: An interactive map you can zoom in on. Time, pace,
-          elevation gain. If you're cycling, wind direction and speed. 90% of the time
-          you need no more than that.
-        </p>
-        <p>
-          Added benefit of a card format: It's inherently mobile optimized, so you get
-          the same display on your phone as on your laptop, and we can easily
-          rearrange the elements inside it to format for, e.g., a landscape format for
-          lists of items.
-        </p>
+          <p>
+            Let's start with the basic blocks. The device records an activity &mdash; a
+            run, a ride, a hike. That's your basic &ldquo;unit&rdquo;.
+          </p>
+          <p>
+            Should it be a &ldquo;page&rdquo;? Maybe, but the classic list page-click-for-detail page model would be clunky here. If you're just done with a run,
+            where are you most likely to be? On your phone. You won't want to log in,
+            see a list of runs, then click the newest one to see how you did.
+          </p>
+          <p>
+            No, let's contain the most important stats in a card format and show it to
+            you right as you log in: An interactive map you can zoom in on. Time, pace,
+            elevation gain. If you're cycling, wind direction and speed. 90% of the time
+            you need no more than that.
+          </p>
+          <p>
+            Added benefit of a card format: It's inherently mobile optimized, so you get
+            the same display on your phone as on your laptop, and we can easily
+            rearrange the elements inside it to format for, e.g., a landscape format for
+            lists of items.
+          </p>
 
-        <p>
-          We then brainstormed and triaged what other &ldquo;containers&rdquo; you might
-          want: What is it you'll want to <em>do</em> when you log in? That is where
-          magic happens and we start to figure out how the application adds value as
-          more than a data dump:
-        </p>
-        <ul>
-          <li>
-            If you can connect (see what we did there?) to others, we add a social and
-            not least <em>competitive</em> element.
-          </li>
-          <li>
-            If you can connect to others, couldn't you create groups? We knew cyclists
-            in particular tend to have groups they regularly ride with, and there's a
-            high level of both cameraderie and competitiveness to those groups.
-          </li>
-          <li>
-            If you can have groups, wouldn't it be useful if you could use the app to
-            plan rides? You could map out and share routes.
-          </li>
-          <li>
-            Once you've done a group run, ride, or round of golf, shouldn't you have a
-            group scoreboard?
-          </li>
-          <li>Could we gamify this? Let's award badges.</li>
-        </ul>
+          <p>
+            We then brainstormed and triaged what other &ldquo;containers&rdquo; you might
+            want: What is it you'll want to <em>do</em> when you log in? That is where
+            magic happens and we start to figure out how the application adds value as
+            more than a data dump:
+          </p>
+          <ul>
+            <li>
+              If you can connect (see what we did there?) to others, we add a social and
+              not least <em>competitive</em> element.
+            </li>
+            <li>
+              If you can connect to others, couldn't you create groups? We knew cyclists
+              in particular tend to have groups they regularly ride with, and there's a
+              high level of both cameraderie and competitiveness to those groups.
+            </li>
+            <li>
+              If you can have groups, wouldn't it be useful if you could use the app to
+              plan rides? You could map out and share routes.
+            </li>
+            <li>
+              Once you've done a group run, ride, or round of golf, shouldn't you have a
+              group scoreboard?
+            </li>
+            <li>Could we gamify this? Let's award badges.</li>
+          </ul>
         </div>
       </div>
       <div class="prose">
@@ -120,23 +118,23 @@ layout: none
           <span class="image-caption">Courses are shareable, and we can tie leaderboards to them.</span>
         </div>
         <div class="prose-body">
-        <p>
-          I ran with the groups and &ldquo;courses&rdquo;, both of which turned out to
-          be very popular features. For example, you could take an activity &mdash; a
-          ride, a run &mdash; and save it as a course, then share that course with the
-          group. You could also create a course from scratch or edit an existing
-          course.
-        </p>
-        <p>
-          The beauty of a course created from actual rides or runs is, you'd have an
-          exact GPS-measured distance and elevation gain, whereas creating one on a
-          map gives you calculated values. That's especially relevant for trail
-          runners, as trails are, this is a technical term, <em>crinkly</em>.
-        </p>
-        <p>
-          As with activities, we encapsulated features like courses in
-          &ldquo;cards&rdquo; optimized for mobile.
-        </p>
+          <p>
+            I ran with the groups and &ldquo;courses&rdquo;, both of which turned out to
+            be very popular features. For example, you could take an activity &mdash; a
+            ride, a run &mdash; and save it as a course, then share that course with the
+            group. You could also create a course from scratch or edit an existing
+            course.
+          </p>
+          <p>
+            The beauty of a course created from actual rides or runs is, you'd have an
+            exact GPS-measured distance and elevation gain, whereas creating one on a
+            map gives you calculated values. That's especially relevant for trail
+            runners, as trails are, this is a technical term, <em>crinkly</em>.
+          </p>
+          <p>
+            As with activities, we encapsulated features like courses in
+            &ldquo;cards&rdquo; optimized for mobile.
+          </p>
         </div>
       </div>
       <h3>The assembled dashboard</h3>
@@ -156,6 +154,11 @@ layout: none
       <p>For reference, here is the old dashboard:</p>
       <img alt="The legacy Garmin Connect activity detail view showing indoor swim stats, interval graph, and pace chart." src="/Assets/work-fitness-tracking-application/connect-old.png">
 
+      <p>Another example, this one with gauge-style readouts for metrics step count, calories, and goal completion:</p>
+      <img alt="Garmin Connect dashboard with gauge-style widgets for steps, calories, goals, and activity reports." src="/Assets/work-fitness-tracking-application/connect-home-2.png">
+      <p>For context, cards link to the equivalent of a detail page, with all the detail you could possibly want:</p>
+      <img alt="Garmin Connect activity detail page for the Tri-Cities Triathlon showing segment times, route map, summary stats, and elevation and speed charts." src="/Assets/work-fitness-tracking-application/connect-triathlon.png">
+
       <h3>But wait: A last-minute enhancement</h3>
 
       <div class="prose">
@@ -163,12 +166,16 @@ layout: none
           <a href="/Assets/work-fitness-tracking-application/connect-tabs.png">
             <img alt="Dashboard tabs let athletes organize separate dashboards by sport without leaving the home screen." src="/Assets/work-fitness-tracking-application/connect-tabs.png">
           </a>
-          <span class="image-caption">There you go. We let you organize your dashboard into dashboards, plural. You'd set up, rename, or remove tabs without leaving the dashboard &mdash; no side quest to &ldquo;settings&rdquo; or &ldquo;configure your dashboard&rdquo; page.</span>
+          <span class="image-caption">There you go. We let you organize your dashboard into dashboards, plural. You'd set up, rename, or remove tabs without leaving the dashboard &mdash; no side quest to &ldquo;settings&rdquo; or &ldquo;configure
+            your dashboard&rdquo; page.</span>
         </div>
-        <p>Working Agile, you don't always see edge cases you've missed until the UI is fully assembled. In our case, that edge case was the hard-core athlete who tracks a lot of activities.</p>
-        <p>
-          The single dashboard would quickly get cluttered, and it would lump different activities together; someone like a triathlete would want to organize them in buckets so that swimming and cycling training aren't munged together in one long dashboard.
-        </p>
+        <div class="prose-body">
+          <p>Working Agile, you don't always see edge cases you've missed until the UI is fully assembled. In our case, that edge case was the hard-core athlete who tracks a lot of activities.</p>
+          <p>
+            The single dashboard would quickly get cluttered, and it would lump different activities together; someone like a triathlete would want to organize them in buckets so that swimming and cycling training aren't munged together in one long
+            dashboard.
+          </p>
+        </div>
       </div>
       <p>
         Did we ship in six months? Yes. Yes, we did. The design process followed (more
