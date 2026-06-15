@@ -220,6 +220,10 @@ main>.splits:has(.full-width) {
   background-image: url(/Assets/work-mobile-app/96d7a884529289.5d5f853578eaa.png);
 }
 
+#non-profit-site-redesign .hero {
+  background-image: url(/Assets/work-non-profit-site-redesign/099d3434758865.560608a9691e6.png);
+}
+
 header {
   display: grid;
   grid-template-areas:
