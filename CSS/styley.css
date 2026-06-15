@@ -1,8 +1,27 @@
+:root {
+  --color-text: #000;
+  --color-accent: #e3660e;
+  --color-accent-hover: #b14f09;
+  --color-muted: #999;
+  --color-background: #fff;
+  --color-surface: #f9f9f9;
+  --color-surface-muted: #f6f6f6;
+  --color-border: #666;
+  --color-border-light: #eee;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-strong: rgba(0, 0, 0, 0.2);
+
+  --width-site-max: 72rem;
+  --width-prose: 56rem;
+  --width-contact: 13rem;
+  --width-half: 50%;
+}
+
 /* Content
 ----------------------------------------------- */
 html {
   font: 14px Inter, "Helvetica Neue", sans-serif;
-  color: #000000;
+  color: var(--color-text);
 }
 
 @media screen and (max-width: 460px) {
@@ -13,12 +32,12 @@ html {
 
 a:link, a:visited {
   text-decoration: none;
-  color: #e3660e;
+  color: var(--color-accent);
 }
 
 a:hover {
   text-decoration: underline;
-  color: #b14f09;
+  color: var(--color-accent-hover);
 }
 
 h1, h2, h3, h4 {
@@ -34,7 +53,7 @@ h1 {
   transition: font-size .5s;
 
   a:link, a:visited, a:hover, a:focus, a:active {
-    color: #000;
+    color: var(--color-text);
     text-decoration: none;
   }
 }
@@ -73,7 +92,7 @@ p {
 /* Widths
 ----------------------------------------------- */
 header {
-  max-width: 72rem;
+  max-width: var(--width-site-max);
   margin: 6rem auto 0 auto;
   padding: 0 2rem;
   font-weight: normal;
@@ -81,7 +100,7 @@ header {
 
 main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) min(56rem, 100%) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) min(var(--width-prose), 100%) minmax(0, 1fr);
   width: 100%;
   max-width: none;
   margin: 5rem 0 0 0;
@@ -90,7 +109,7 @@ main {
   font-weight: normal;
 }
 
-main > * {
+main>* {
   grid-column: 2;
 }
 
@@ -99,27 +118,30 @@ main > * {
   display: flow-root;
 }
 
-main > .full-width,
-main > .splits:has(.full-width) {
+main>.full-width,
+main>.splits:has(.full-width) {
   grid-column: 1 / -1;
-  width: min(72rem, 100%);
-  max-width: 72rem;
+  width: min(var(--width-site-max), 100%);
+  max-width: var(--width-site-max);
   justify-self: center;
 }
 
 .hero {
   height: 10rem;
   margin-bottom: 4rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 10px 0 var(--color-shadow) inset;
   background-image: url(/Assets/work-information-architecture/First-live-nav.png);
   background-size: cover;
 }
+
 #product-detail .hero {
   background-image: url(/Assets/work-one-product-detail-feature/with-multiple-logos.png);
 }
+
 #machine-learning .hero {
   background-image: url(/Assets/work-machine-learningai-project/projects-screen.png);
 }
+
 #fitness-tracking .hero {
   background-image: url(/Assets/work-fitness-tracking-application/connect-home.png);
 }
@@ -129,18 +151,18 @@ header {
   grid-template-areas:
     "heading contact"
     "tag-line tag-line";
-  grid-template-columns: 1fr 13rem;
+  grid-template-columns: 1fr var(--width-contact);
   align-items: end;
 
   #tag-line {
     grid-area: tag-line;
     margin: -.5rem 0 0 0;
-    color: #e3660e;
+    color: var(--color-accent);
     font-size: 1.2rem;
     font-weight: 500;
 
     span {
-      color: #999;
+      color: var(--color-muted);
       font-weight: 200;
     }
   }
@@ -151,11 +173,11 @@ header {
     flex-direction: column;
     justify-content: flex-end;
     margin: .5rem 0 0 0;
-    border-top: 3px solid #e3660e;
+    border-top: 3px solid var(--color-accent);
     padding: .25rem 0 .35rem 0;
 
     a {
-      color: #000;
+      color: var(--color-text);
     }
   }
 
@@ -172,7 +194,7 @@ header {
     }
 
     #contact {
-      width: 13rem;
+      width: var(--width-contact);
     }
   }
 
@@ -218,7 +240,7 @@ ul.worky-works {
 
   li {
     margin: 0 0 1rem 0;
-    background: none #f9f9f9;
+    background: none var(--color-surface);
   }
 
   a {
@@ -230,7 +252,7 @@ ul.worky-works {
     align-items: center;
     min-height: 205px;
     overflow: hidden;
-    color: #000;
+    color: var(--color-text);
     text-decoration: none;
     box-shadow: none;
     transition: box-shadow .5s;
@@ -242,9 +264,9 @@ ul.worky-works {
 
   img {
     display: block;
-    width: 50%;
+    width: var(--width-half);
     margin: 0;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 0 1rem 0 var(--color-shadow-strong);
     transition: box-shadow .5s;
   }
 }
@@ -272,7 +294,7 @@ ul.worky-works {
 }
 
 ul.worky-works a:hover {
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 0 1rem 0 var(--color-shadow-strong);
 
   img {
     box-shadow: none;
@@ -316,7 +338,7 @@ table {
     padding: 1rem;
     vertical-align: top;
     text-align: left;
-    border-top: 1px solid #666;
+    border-top: 1px solid var(--color-border);
   }
 
   th {
@@ -345,6 +367,7 @@ table {
     columns: unset;
   }
 }
+
 .three-step {
   width: 100%;
   column-count: 3;
@@ -368,13 +391,13 @@ main img {
 
 main img, main .tr-caption-container, .Image img, .item-thumbnail img {
   padding: 0;
-  border: 1px solid #eeeeee;
+  border: 1px solid var(--color-border-light);
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  background: #ffffff;
-  border: 1px solid #eeeeee;
-  -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+  background: var(--color-background);
+  border: 1px solid var(--color-border-light);
+  -moz-box-shadow: 1px 1px 5px var(--color-shadow);
 }
 
 .image-group {
@@ -382,7 +405,7 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
 
   &.pull-left,
   &.pull-right {
-    width: 50%;
+    width: var(--width-half);
     box-sizing: border-box;
   }
 
@@ -397,13 +420,16 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
   }
 
   &.image-caption-group {
-    background-color: #f6f6f6;
+    background-color: var(--color-surface-muted);
     padding: 1rem;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 var(--color-shadow);
 
     .image-caption {
       display: block;
       padding-top: 1rem;
+      max-width: var(--width-prose);
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -431,6 +457,7 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
 }
 
 @media screen and (max-width: 860px) {
+
   .image-group.pull-left,
   .image-group.pull-right {
     float: none;
