@@ -51,62 +51,68 @@ layout: none
     <p>So why can't you just let the buyer choose from any of them? Maybe you want a logo on the left sleeve and a large graphic on the back.</p>
 
 
-<div class="prose">
-    <div class="image-group image-caption-group pull-left">
-      <img alt="Something like this, perhaps?" src="/Assets/work-one-product-detail-feature/pick-any-deco-area.png">
-      <span class="image-caption">Something like this, perhaps?</span>
+    <div class="prose">
+      <div class="image-group image-caption-group pull-left">
+        <img alt="Something like this, perhaps?" src="/Assets/work-one-product-detail-feature/pick-any-deco-area.png">
+        <span class="image-caption">Something like this, perhaps?</span>
+      </div>
+      <div class="prose-body">
+        <p>I thought of that, roughed it out, and built an an interactive proof of concept for picking one or more of any available areas. Technical contstraints, no &mdash; this could be done on the existing platform.</p>
+        <p>However, this is where design is a dance with Product and business strategy: The more options we'd offer, the higher the cost. Cost on the back end in setup. Cost on the front end in production. Who would cover that cost? You, the consumer.</p>
+        <p>Moreover, more choices isn't necessarily a good thing. It would mean a more complicated purchase flow. Choices are <strong>friction</strong>. Sure enough, competitors offer lots of options, but their user journeys also involve a lot more decisions, and your out-the-door price depends on those choices.</p>
+      </div>
     </div>
 
-    <p>I thought of that, roughed it out, and built an an interactive proof of concept for picking one or more of any available areas. Technical contstraints, no &mdash; this could be done on the existing platform.</p>
-    <p>However, this is where design is a dance with Product and business strategy: The more options we'd offer, the higher the cost. Cost on the back end in setup. Cost on the front end in production. Who would cover that cost? You, the consumer.</p>
-</div>
-    <p>Moreover, more choices isn't necessarily a good thing. It would mean a more complicated purchase flow. Choices are <strong>friction</strong>. Sure enough, competitors offer lots of options, but their user journeys also involve a lot more decisions, and your out-the-door price depends on those choices.</p>
-<div class="prose">
-    <div class="image-group image-caption-group pull-right">
-      <img alt="Simple choice(s)." src="/Assets/work-one-product-detail-feature/pick-two-deco-areas.png">
-      <span class="image-caption">Simple choice(s).</span>
+    <div class="prose">
+      <div class="image-group image-caption-group pull-right">
+        <img alt="Simple choice(s)." src="/Assets/work-one-product-detail-feature/pick-two-deco-areas.png">
+        <span class="image-caption">Simple choice(s).</span>
+      </div>
+      <div class="prose-body">
+        <p>The final direction was to, for each product, offer up to two curated decoration locations. We could now uptimize the UI for a clear business strategy.</p>
+        <ul>
+          <li>Choices are kept dead simple.</li>
+          <li>We can offer you a predictable, up-front price.</li>
+          <li>Checkboxes make it visible and clear which area(s) you have decorated.</li>
+        </ul>
+        <p>When I user tested this in moderated sessions, all my participants breezed right through the mechanics of decorating the product. This part of the UI and the purchase flow was zero friction.</p>
+      </div>
     </div>
-    <p>The final direction was to, for each product, offer up to two curated decoration locations. We could now uptimize the UI for a clear business strategy.</p>
-    <ul>
-      <li>Choices are kept dead simple.</li>
-      <li>We can offer you a predictable, up-front price.</li>
-      <li>Checkboxes make it visible and clear which area(s) you have decorated.</li>
-    </ul>
-  </div>
-    <p>When I user tested this in moderated sessions, all my participants breezed right through the mechanics of decorating the product. This part of the UI and the purchase flow was zero friction.</p>
 
     <h3>Complexities arise</h3>
     <p>There's a glaring gap in functionality above: Decorating <em>one</em> product <em>one</em> time takes virtually no cognitive load. It's a good interaction, but the artwork you upload doesn't stick. It's not <em>saved</em>.</p>
 
-<div class="prose">
-    <div class="image-group image-caption-group pull-left">
-      <img alt="New functionality: Images you upload are now saved." src="/Assets/work-one-product-detail-feature/with-logos-saved.png">
-      <span class="image-caption">New functionality: Images you upload are now saved.</span>
+    <div class="prose">
+      <div class="image-group image-caption-group pull-left">
+        <img alt="New functionality: Images you upload are now saved." src="/Assets/work-one-product-detail-feature/with-logos-saved.png">
+        <span class="image-caption">New functionality: Images you upload are now saved.</span>
+      </div>
+      <div class="prose-body">
+        <p>We knew from research &mdash; surveys and in-depth interviews &mdash; that our customers were often invested in the look-and-feel of the product. Refilling your supply of pens with your logo on them is one thing, it's quite another when you fret over whether the recipients will like the swag you're giving out. Ultimately it's the same uncertainty you have when you give a gift: Will they like it? Will this purchase make <em>me</em> look good?</p>
+        <p>What that means is the purchase journey involves trying out multiple products. Browse, pick, decorate, browse, pick another, decorate, compare, browse, and so on. That is tedious when you have to upload the same artwork over and over.</p>
+        <p>New functionality is built out, and we now have a &ldquo;locker&rdquo; holding images you upload. For <strong>conversion rates</strong> we've now reduced friction considerably, and for <strong>retention</strong> we've added an incentive to create an account, so that your images are saved between sessions.</p>
+        <p>There is a catch: We see in user tests and sessions that many customer don't notice that &ldquo;drawer&rdquo;. They don't know their artwork is saved, so we want your uploaded images to be visible by default. No drawer.</p>
+        <p>We have two obstacles. One, that's a redesign of the UI. One, we don't just want to jam thumbnails into the current visual hierarchy. Two, pulling in those thumbnails for every page load will tax the servers. Customers will pay that tax in the form of longer load times.</p>
+        <h3>The solution</h3>
+      </div>
     </div>
 
-    <p>We knew from research &mdash; surveys and in-depth interviews &mdash; that our customers were often invested in the look-and-feel of the product. Refilling your supply of pens with your logo on them is one thing, it's quite another when you fret over whether the recipients will like the swag you're giving out. Ultimately it's the same uncertainty you have when you give a gift: Will they like it? Will this purchase make <em>me</em> look good?</p>
-    <p>What that means is the purchase journey involves trying out multiple products. Browse, pick, decorate, browse, pick another, decorate, compare, browse, and so on. That is tedious when you have to upload the same artwork over and over.</p>
-  </div>
-    <p>New functionality is built out, and we now have a &ldquo;locker&rdquo; holding images you upload. For <strong>conversion rates</strong> we've now reduced friction considerably, and for <strong>retention</strong> we've added an incentive to create an account, so that your images are saved between sessions.</p>
-    <p>There is a catch: We see in user tests and sessions that many customer don't notice that &ldquo;drawer&rdquo;. They don't know their artwork is saved, so we want your uploaded images to be visible by default. No drawer.</p>
-    <p>We have two obstacles. One, that's a redesign of the UI. One, we don't just want to jam thumbnails into the current visual hierarchy. Two, pulling in those thumbnails for every page load will tax the servers. Customers will pay that tax in the form of longer load times.</p>
-    <h3>The solution</h3>
-
-<div class="prose">
-    <div class="image-group image-caption-group pull-right">
-      <img alt="Upload once, apply to any decoration area." src="/Assets/work-one-product-detail-feature/single-upload-field.png">
-      <span class="image-caption">Upload once, apply to any decoration area.</span>
+    <div class="prose">
+      <div class="image-group image-caption-group pull-right">
+        <img alt="Upload once, apply to any decoration area." src="/Assets/work-one-product-detail-feature/single-upload-field.png">
+        <span class="image-caption">Upload once, apply to any decoration area.</span>
+      </div>
+      <div class="prose-body">
+        <p>Load times are a technical problem that's being solved, so after a napkin sketch or two I wireframe up a new solution. Why do you need an upload widget for each decoration area? Everything you upload goes in a &ldquo;bucket&rdquo; now. Your artwork isn't tied to one decoration area on one product.</p>
+        <p>Final UI went through several iterations between myself, our CRO manager, our graphic designer, and our UI designer/developer. I had design goals, or constraints, if you will:</p>
+        <ul>
+          <li>It must be clear which area(s) you have decorated.</li>
+          <li>It must be clear which image you have selected for a given area.</li>
+          <li>It must be clear how to remove an image from an area.</li>
+        </ul>
+        <p>When you are ready to click Add to Cart, you need to feel confident you know exactly what's going to appear where on the product. Both locations are typically not in view at the same time. When checkboxes showed what you had selected, that's a no-brainer &mdash; &ldquo;Centered on Back&rdquo; is either checked or it isn't. Changing to tabs, though, means one is always hidden, so you need some sort of visual indication what you've applied where.</p>
+      </div>
     </div>
-
-    <p>Load times are a technical problem that's being solved, so after a napkin sketch or two I wireframe up a new solution. Why do you need an upload widget for each decoration area? Everything you upload goes in a &ldquo;bucket&rdquo; now. Your artwork isn't tied to one decoration area on one product.</p>
-    <p>Final UI went through several iterations between myself, our CRO manager, our graphic designer, and our UI designer/developer. I had design goals, or constraints, if you will:</p>
-    <ul>
-      <li>It must be clear which area(s) you have decorated.</li>
-      <li>It must be clear which image you have selected for a given area.</li>
-      <li>It must be clear how to remove an image from an area.</li>
-    </ul>
-  </div>
-    <p>When you are ready to click Add to Cart, you need to feel confident you know exactly what's going to appear where on the product. Both locations are typically not in view at the same time. When checkboxes showed what you had selected, that's a no-brainer &mdash; &ldquo;Centered on Back&rdquo; is either checked or it isn't. Changing to tabs, though, means one is always hidden, so you need some sort of visual indication what you've applied where.</p>
 
     <div class="image-group image-caption-group full-width">
       	<a href="/Assets/work-one-product-detail-feature/Final-version.png">

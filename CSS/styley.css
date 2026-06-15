@@ -123,38 +123,44 @@ main>* {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1.5rem;
+  align-items: stretch;
 }
 
 .prose:has(> .pull-left) > .image-group {
   grid-column: 1;
-  grid-row: 1 / -1;
+  grid-row: 1;
   float: none;
   width: auto;
   margin: 0;
   align-self: stretch;
 }
 
-.prose:has(> .pull-left) > :not(.image-group) {
+.prose:has(> .pull-left) > .prose-body {
   grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
 }
 
 .prose:has(> .pull-right) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1.5rem;
+  align-items: stretch;
 }
 
 .prose:has(> .pull-right) > .image-group {
   grid-column: 2;
-  grid-row: 1 / -1;
+  grid-row: 1;
   float: none;
   width: auto;
   margin: 0;
   align-self: stretch;
 }
 
-.prose:has(> .pull-right) > :not(.image-group) {
+.prose:has(> .pull-right) > .prose-body {
   grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
 }
 
 main>.full-width,
@@ -512,9 +518,10 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
     margin-bottom: 2rem;
   }
 
-  .prose:has(> .pull-left) > :not(.image-group),
-  .prose:has(> .pull-right) > :not(.image-group) {
+  .prose:has(> .pull-left) > .prose-body,
+  .prose:has(> .pull-right) > .prose-body {
     grid-column: 1;
+    grid-row: auto;
   }
 
   .image-group.pull-left,
