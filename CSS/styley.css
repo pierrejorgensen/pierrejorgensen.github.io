@@ -214,6 +214,10 @@ main>.splits:has(.full-width) {
   background-image: url(/Assets/work-fitness-tracking-application/connect-home.png);
 }
 
+#mobile-app .hero {
+  background-image: url(/Assets/work-mobile-app/96d7a884529289.5d5f853578eaa.png);
+}
+
 header {
   display: grid;
   grid-template-areas:
@@ -494,7 +498,8 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
 
     .image-caption {
       display: block;
-      padding-top: 1rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
     }
   }
 

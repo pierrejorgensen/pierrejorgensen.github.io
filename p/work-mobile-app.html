@@ -1,0 +1,135 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% include head.html %}
+    <link rel="canonical" href="https://pierrejorgensen.github.io/p/work-mobile-app.html">
+    <meta property="og:url" content="https://pierrejorgensen.github.io/p/work-mobile-app.html">
+    <meta property="og:title" content="Work: G2C (government-to-consumer) app">
+    <meta property="og:description" content="NIC wanted an app to simplify your interactions with state and local government: Pay property taxes, get voting reminders, buy licenses and permits, and more.">
+    <title>Work: G2C (government-to-consumer) app</title>
+  </head>
+
+  <body id="mobile-app">
+    {% include header.html %}
+
+    <main>
+      <div class="hero full-width"></div>
+      <h2>G2C (government-to-consumer) app</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th scope="row">The job</th>
+            <td>
+              Design a mobile app that keeps track of annual, tedious government business &mdash; property taxes, vehicle registration renewal, voting reminders, hunting licenses, and more &mdash; and makes it easy to pay in one place.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">The industry</th>
+            <td>
+              Government-to-consumer (G2C) services. NIC&rsquo;s core business is payment processing and UI for state and local government agencies.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">The product strategy</th>
+            <td>
+              Turn the agency-centric model inside out: Give citizens one app &mdash; Gov2Go &mdash; that localizes to their state and county and becomes a clearinghouse for the bills and tasks they would otherwise manage across separate websites.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Background</h3>
+      <p>NIC wants to launch an app to simplify your interactions with state and local government: Pay your property taxes, get reminders when and where to vote, buy and renew licenses and permits, and so on.</p>
+      <p>We already had an inventory of tasks and information we&rsquo;d initially be able to offer. My first order of business was to map out a natural interaction flow for each of the various tasks.</p>
+
+      <h3>Information architecture and interaction flows</h3>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/96d7a884529289.5d5f853578eaa.png">
+          <img alt="User flow diagram for buying a Kansas hunting permit through Gov2Go, from search or notification through eligibility, payment, and confirmation." src="/Assets/work-mobile-app/96d7a884529289.5d5f853578eaa.png">
+        </a>
+      </div>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/07a1b684529289.5d5f8a72262b9.png">
+          <img alt="Wireframes in UXPin showing minimum-necessary flows for paying a utility bill and a court fine." src="/Assets/work-mobile-app/07a1b684529289.5d5f8a72262b9.png">
+        </a>
+      </div>
+      <p>These flows together became the road map.</p>
+
+      <h3>Design: Navigation</h3>
+      <p>Next, my goal was to organize the information and tasks into a navigation scheme that would feel natural for end users. This was not as obvious as it might seem. NIC&rsquo;s core business is to serve government agencies, which means adopting <em>their</em> naming conventions and process flows. We would have to turn that model inside out, and I had no prior personas or user research to work with. To solve that problem, I used online card-sorting services and ran two rounds of testing with a few hundred participants. We came up with a relatively simple structure: The government services we would initially serve could all roll up into Cars and Property, Voting, and Outdoors. (Business services such as licensing and permit, and interactions with the court systems beyond traffic-related fines, were out of scope.)</p>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/15b28b84529289.5d6037a3bb1f0.png">
+          <img alt="Gov2Go mobile navigation drawer organized into Timeline, Messages, Cars and Property, Voting, Outdoors, Documents, and Profile." src="/Assets/work-mobile-app/15b28b84529289.5d6037a3bb1f0.png">
+        </a>
+      </div>
+
+      <h3>Design: Sign-up</h3>
+      <p>We were able to keep setup simple. The app requires nothing more than the user&rsquo;s e-mail address and Zip code, the latter to localize for state and county.</p>
+      <div class="three-step">
+        <div class="image-group">
+          <a href="/Assets/work-mobile-app/13d0aa84529289.5d6037a238cfe.png">
+            <img alt="Gov2Go sign-up screen asking for Zip code and email address." src="/Assets/work-mobile-app/13d0aa84529289.5d6037a238cfe.png">
+          </a>
+        </div>
+        <div class="image-group">
+          <a href="/Assets/work-mobile-app/5c93e484529289.5d6037a2381fa.png">
+            <img alt="Gov2Go sign-up screen localized for Kansas with Zip code entered." src="/Assets/work-mobile-app/5c93e484529289.5d6037a2381fa.png">
+          </a>
+        </div>
+        <div class="image-group">
+          <a href="/Assets/work-mobile-app/fd23e584529289.5d6037a237c1d.png">
+            <img alt="Gov2Go sign-up screen with Zip code and email filled in before Get Started." src="/Assets/work-mobile-app/fd23e584529289.5d6037a237c1d.png">
+          </a>
+        </div>
+      </div>
+      <p>Setting up the app requires no more than e-mail and location, but it has no utility until you add information. The app encourages you to do so when you first set it up in a series of guided steps to minimize friction.</p>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/bd275e84529289.5d6037a2d0898.png">
+          <img alt="Gov2Go onboarding step asking the user to add a Kansas license plate for renewal reminders." src="/Assets/work-mobile-app/bd275e84529289.5d6037a2d0898.png">
+        </a>
+      </div>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/e5b98584529289.5d6037a2d1db3.png">
+          <img alt="Gov2Go onboarding step with a license plate entered and ready to add." src="/Assets/work-mobile-app/e5b98584529289.5d6037a2d1db3.png">
+        </a>
+      </div>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/3fbd8784529289.5d6037a2d1680.png">
+          <img alt="Gov2Go onboarding step showing a saved vehicle before moving on to property taxes." src="/Assets/work-mobile-app/3fbd8784529289.5d6037a2d1680.png">
+        </a>
+      </div>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/cb6f4084529289.5d6037a2d0e0f.png">
+          <img alt="Gov2Go onboarding step asking which Kansas county the user owns property in." src="/Assets/work-mobile-app/cb6f4084529289.5d6037a2d0e0f.png">
+        </a>
+      </div>
+
+      <h3>Design: Payment screen</h3>
+      <p>Once the app is set up, its primary utility is informational. To make it truly useful, you&rsquo;ll want to also make payments. Today, you&rsquo;ll pay, e.g., the DMV and the county assessor separately. Want to buy a fishing permit, pay a parking ticket, or reserve a shelter at a local park? Three separate agencies, three separate Web sites, three separate payments.</p>
+      <p>NIC&rsquo;s core business is payment processing and UI for government agencies, which means it is already integrated with thousands of state and local governments&rsquo; and utilities&rsquo; invoicing and payment systems. Having one or more saved payment methods in Gov2Go makes it not just another online wallet but a clearinghouse to all kinds of payments and bills you&rsquo;d otherwise have to manage separately.</p>
+      <p>Taking payments and storing payment information, of course, requires an additional layer of security. Where initial setup of the app requires nothing besides publicly available information, which allowed us to skip the speed bump of having users create a password initially, now we need one, which means the dreaded password rules.</p>
+      <p>Rather than use the common model of describing the requirements and then correcting users with error messages when those rules are not met, I wanted to have the system give instant, positive feedback.</p>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/30824184529289.5d6037a378650.png">
+          <img alt="Gov2Go payment screen with a password field and a requirements panel showing which rules are not yet met." src="/Assets/work-mobile-app/30824184529289.5d6037a378650.png">
+        </a>
+      </div>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/60fcdc84529289.5d6037a37945a.png">
+          <img alt="Gov2Go payment screen with password requirements turning green as the user meets lower case, numbers, and length rules." src="/Assets/work-mobile-app/60fcdc84529289.5d6037a37945a.png">
+        </a>
+      </div>
+      <div class="image-group image-caption-group full-width">
+        <a href="/Assets/work-mobile-app/1d7de484529289.5d6037a378dd7.png">
+          <img alt="Gov2Go payment screen with nearly all password requirements satisfied through positive inline feedback." src="/Assets/work-mobile-app/1d7de484529289.5d6037a378dd7.png">
+        </a>
+      </div>
+    </main>
+    {% include footer.html %}
+  </body>
+
+</html>
