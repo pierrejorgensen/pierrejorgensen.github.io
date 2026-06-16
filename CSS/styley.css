@@ -83,8 +83,10 @@ ul {
   margin-bottom: 1rem;
 }
 
-p {
+p, li {
   line-height: 150%;
+}
+p {
   margin: 0;
   padding: 0 0 15px 0;
 }
@@ -126,7 +128,7 @@ main {
   grid-template-columns: minmax(0, 1fr) min(var(--width-prose), 100%) minmax(0, 1fr);
   width: 100%;
   max-width: none;
-  margin: 5rem 0 0 0;
+  margin: 4rem 0 0 0;
   padding: 0 2rem;
   box-sizing: border-box;
   font-weight: normal;
