@@ -3,6 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SITE_DIR="${1:-${ROOT_DIR}/_site}"
+STATICRYPT_CLI="${ROOT_DIR}/node_modules/staticrypt/cli/index.js"
 
 cd "${ROOT_DIR}"
 
@@ -13,6 +14,16 @@ fi
 
 if [[ -z "${STATICRYPT_PASSWORD:-}" ]]; then
   echo "Set STATICRYPT_PASSWORD before encrypting." >&2
+  exit 1
+fi
+
+if [[ ! -f "${STATICRYPT_CLI}" ]]; then
+  echo "StatiCrypt not found. Run npm ci first." >&2
+  exit 1
+fi
+
+if [[ ! -f "${ROOT_DIR}/.staticrypt.json" ]]; then
+  echo "Missing ${ROOT_DIR}/.staticrypt.json" >&2
   exit 1
 fi
 
@@ -32,18 +43,7 @@ if ((${#site_entries[@]} == 0)); then
   exit 1
 fi
 
-STATICRYPT_BIN="${ROOT_DIR}/node_modules/.bin/staticrypt"
-if [[ ! -x "${STATICRYPT_BIN}" ]]; then
-  echo "StatiCrypt binary not found. Run npm ci first." >&2
-  exit 1
-fi
-
-if [[ ! -f "${ROOT_DIR}/.staticrypt.json" ]]; then
-  echo "Missing ${ROOT_DIR}/.staticrypt.json" >&2
-  exit 1
-fi
-
-"${STATICRYPT_BIN}" "${site_entries[@]}" -r -d "${SITE_DIR}" \
+node "${STATICRYPT_CLI}" "${site_entries[@]}" -r -d "${SITE_DIR}" \
   --short \
   --template-title 'Per "Pierre" Jørgensen' \
   --template-instructions "Enter the portfolio password to view this page." \

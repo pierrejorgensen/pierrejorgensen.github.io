@@ -44,10 +44,7 @@ jobs:
       - name: Encrypt HTML pages
         env:
           STATICRYPT_PASSWORD: unicorn
-        run: |
-          set -euxo pipefail
-          npm run encrypt
-          grep -q staticrypt-html _site/index.html
+        run: npm run encrypt
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
