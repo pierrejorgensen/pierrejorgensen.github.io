@@ -2,33 +2,34 @@
 
 Portfolio site for Per "Pierre" Jørgensen.
 
+## How the site is built
+
+This is a plain static site — no Jekyll. Source pages live at the repo root (`index.html`, `p/*.html`) and pull shared fragments from `_includes/` (head, header, footer). A small Python build script assembles everything into `_site/` for deployment.
+
 ## Password protection
 
-The live site is encrypted with [StatiCrypt](https://github.com/robinmoisson/staticrypt) during deployment. Source HTML in this repo stays unencrypted for editing; GitHub Actions builds the Jekyll site, encrypts every HTML page, and deploys the result to GitHub Pages.
+The live site is encrypted with [StatiCrypt](https://github.com/robinmoisson/staticrypt) during deployment. Source HTML stays unencrypted for editing; GitHub Actions builds the site, encrypts every HTML page, and deploys the result to GitHub Pages.
 
-### One-time GitHub setup
+### GitHub setup
 
 1. Open **Settings → Pages**.
-2. Set **Build and deployment → Source** to **GitHub Actions** (not “Deploy from a branch”).
-3. In the **Workflow** dropdown, choose **Deploy password-protected site**.  
-   Do not leave the default **pages build and deployment / Jekyll** workflow selected — that publishes unencrypted HTML.
+2. Set **Build and deployment → Source** to **GitHub Actions**.
+3. Choose the **Deploy password-protected site** workflow (not the default Jekyll workflow).
 
-After that, every push to `main` rebuilds and redeploys the password-protected site.
+Password: `unicorn` (also set as `STATICRYPT_PASSWORD` in the deploy workflow).
 
-### Local encryption test
+### Local preview
 
 ```bash
 npm install
-bundle install
-bundle exec jekyll build --destination _site
+npm run build
 export STATICRYPT_PASSWORD='unicorn'
 npm run encrypt
 ```
 
-Then open files under `_site/` in a browser via a local web server (StatiCrypt requires HTTPS or localhost).
+Serve `_site/` over HTTPS or localhost to test the password prompt.
 
 ### Notes
 
-- Use a password you are comfortable sharing with portfolio viewers. StatiCrypt decrypts in the browser; this is suitable for casual access control, not highly sensitive data.
+- Append `#staticrypt_logout` to any URL to clear the saved password.
 - The salt in `.staticrypt.json` is committed so “Remember me” works across pages between deploys.
-- Append `#staticrypt_logout` to any page URL to clear the saved password.

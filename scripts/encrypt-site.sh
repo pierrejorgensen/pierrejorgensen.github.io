@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUTPUT_SITE="${1:-${ROOT_DIR}/_site}"
+SITE_DIR="${1:-${ROOT_DIR}/_site}"
 STATICRYPT_CLI="${ROOT_DIR}/node_modules/staticrypt/cli/index.js"
 
 cd "${ROOT_DIR}"
@@ -12,8 +12,8 @@ if [[ -z "${STATICRYPT_PASSWORD:-}" ]]; then
   exit 1
 fi
 
-if [[ ! -d "${OUTPUT_SITE}" ]]; then
-  echo "Site directory not found: ${OUTPUT_SITE}" >&2
+if [[ ! -d "${SITE_DIR}" ]]; then
+  echo "Site directory not found: ${SITE_DIR}. Run npm run build first." >&2
   exit 1
 fi
 
@@ -27,47 +27,40 @@ if [[ ! -f "${ROOT_DIR}/.staticrypt.json" ]]; then
   exit 1
 fi
 
-if [[ ! -f "${OUTPUT_SITE}/index.html" ]]; then
-  echo "Missing ${OUTPUT_SITE}/index.html" >&2
+if [[ ! -f "${SITE_DIR}/index.html" ]]; then
+  echo "Missing ${SITE_DIR}/index.html" >&2
   exit 1
 fi
 
 HTML_COUNT=0
 while IFS= read -r html_file; do
   HTML_COUNT=$((HTML_COUNT + 1))
-done < <(find "${OUTPUT_SITE}" -name '*.html')
+done < <(find "${SITE_DIR}" -name '*.html')
 
 if [[ "${HTML_COUNT}" == "0" ]]; then
-  echo "No HTML files found under ${OUTPUT_SITE}." >&2
+  echo "No HTML files found under ${SITE_DIR}." >&2
   exit 1
 fi
 
 echo "Encrypting ${HTML_COUNT} HTML file(s)..."
 
-WORK_DIR="$(mktemp -d)"
-cp -a "${OUTPUT_SITE}/." "${WORK_DIR}/"
-chmod -R u+w "${WORK_DIR}"
+shopt -s nullglob
+site_entries=("${SITE_DIR}"/*)
+if ((${#site_entries[@]} == 0)); then
+  echo "No files matched ${SITE_DIR}/* for encryption." >&2
+  exit 1
+fi
 
-STATICRYPT_ARGS=(
-  --short
-  --template-title "Per Pierre Jorgensen"
-  --template-instructions "Enter the portfolio password to view this page."
-  --template-placeholder "Password"
-  --template-button "Continue"
-  --template-color-primary "#e3660e"
-  --template-color-secondary "#f9f9f9"
-  --template-error "Incorrect password."
+node "${STATICRYPT_CLI}" "${site_entries[@]}" -r -d "${SITE_DIR}" \
+  --short \
+  --template-title "Per Pierre Jorgensen" \
+  --template-instructions "Enter the portfolio password to view this page." \
+  --template-placeholder "Password" \
+  --template-button "Continue" \
+  --template-color-primary "#e3660e" \
+  --template-color-secondary "#f9f9f9" \
+  --template-error "Incorrect password." \
   --remember 30
-)
 
-while IFS= read -r html_file; do
-  echo "  ${html_file#"${WORK_DIR}/"}"
-  node "${STATICRYPT_CLI}" "${STATICRYPT_ARGS[@]}" "${html_file}" -d "$(dirname "${html_file}")"
-done < <(find "${WORK_DIR}" -name '*.html')
-
-chmod -R u+w "${OUTPUT_SITE}" || true
-rsync -a --delete "${WORK_DIR}/" "${OUTPUT_SITE}/"
-rm -rf "${WORK_DIR}"
-
-grep -q staticrypt-html "${OUTPUT_SITE}/index.html"
+grep -q staticrypt-html "${SITE_DIR}/index.html"
 echo "Encryption verified."

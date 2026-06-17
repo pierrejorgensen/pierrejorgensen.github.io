@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Portfolio site",
   "scripts": {
+    "build": "bash scripts/build-site.sh",
     "encrypt": "bash scripts/encrypt-site.sh"
   },
   "repository": {
