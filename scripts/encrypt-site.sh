@@ -65,10 +65,8 @@ while IFS= read -r html_file; do
   node "${STATICRYPT_CLI}" "${STATICRYPT_ARGS[@]}" "${html_file}" -d "$(dirname "${html_file}")"
 done < <(find "${WORK_DIR}" -name '*.html')
 
-chmod -R u+w "${OUTPUT_SITE}"
-rm -rf "${OUTPUT_SITE}"
-mkdir -p "${OUTPUT_SITE}"
-cp -a "${WORK_DIR}/." "${OUTPUT_SITE}/"
+chmod -R u+w "${OUTPUT_SITE}" || true
+rsync -a --delete "${WORK_DIR}/" "${OUTPUT_SITE}/"
 rm -rf "${WORK_DIR}"
 
 grep -q staticrypt-html "${OUTPUT_SITE}/index.html"
