@@ -43,8 +43,19 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Encrypt HTML pages
-        run: npm run encrypt
+      - name: Verify StatiCrypt install
+        run: test -f node_modules/staticrypt/cli/index.js
+
+      - name: Encrypt index page
+        run: |
+          node node_modules/staticrypt/cli/index.js --short _site/index.html -d _site
+          grep -q staticrypt-html _site/index.html
+
+      - name: Encrypt remaining HTML pages
+        run: |
+          while IFS= read -r html_file; do
+            node node_modules/staticrypt/cli/index.js --short "$html_file" -d "$(dirname "$html_file")"
+          done < <(find _site -name '*.html' ! -path '_site/index.html')
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
