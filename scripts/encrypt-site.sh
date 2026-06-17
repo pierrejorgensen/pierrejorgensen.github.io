@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SITE_DIR="${1:-${ROOT_DIR}/_site}"
+OUTPUT_SITE="${1:-${ROOT_DIR}/_site}"
 STATICRYPT_CLI="${ROOT_DIR}/node_modules/staticrypt/cli/index.js"
 
 cd "${ROOT_DIR}"
@@ -12,8 +12,8 @@ if [[ -z "${STATICRYPT_PASSWORD:-}" ]]; then
   exit 1
 fi
 
-if [[ ! -d "${SITE_DIR}" ]]; then
-  echo "Site directory not found: ${SITE_DIR}" >&2
+if [[ ! -d "${OUTPUT_SITE}" ]]; then
+  echo "Site directory not found: ${OUTPUT_SITE}" >&2
   exit 1
 fi
 
@@ -27,24 +27,26 @@ if [[ ! -f "${ROOT_DIR}/.staticrypt.json" ]]; then
   exit 1
 fi
 
-if [[ ! -f "${SITE_DIR}/index.html" ]]; then
-  echo "Missing ${SITE_DIR}/index.html" >&2
+if [[ ! -f "${OUTPUT_SITE}/index.html" ]]; then
+  echo "Missing ${OUTPUT_SITE}/index.html" >&2
   exit 1
 fi
 
 HTML_COUNT=0
 while IFS= read -r html_file; do
   HTML_COUNT=$((HTML_COUNT + 1))
-done < <(find "${SITE_DIR}" -name '*.html')
+done < <(find "${OUTPUT_SITE}" -name '*.html')
 
 if [[ "${HTML_COUNT}" == "0" ]]; then
-  echo "No HTML files found under ${SITE_DIR}." >&2
+  echo "No HTML files found under ${OUTPUT_SITE}." >&2
   exit 1
 fi
 
 echo "Encrypting ${HTML_COUNT} HTML file(s)..."
 
-chmod -R u+w "${SITE_DIR}"
+WORK_DIR="$(mktemp -d)"
+cp -a "${OUTPUT_SITE}/." "${WORK_DIR}/"
+chmod -R u+w "${WORK_DIR}"
 
 STATICRYPT_ARGS=(
   --short
@@ -59,9 +61,15 @@ STATICRYPT_ARGS=(
 )
 
 while IFS= read -r html_file; do
-  echo "  ${html_file#"${SITE_DIR}/"}"
+  echo "  ${html_file#"${WORK_DIR}/"}"
   node "${STATICRYPT_CLI}" "${STATICRYPT_ARGS[@]}" "${html_file}" -d "$(dirname "${html_file}")"
-done < <(find "${SITE_DIR}" -name '*.html')
+done < <(find "${WORK_DIR}" -name '*.html')
 
-grep -q staticrypt-html "${SITE_DIR}/index.html"
+chmod -R u+w "${OUTPUT_SITE}"
+rm -rf "${OUTPUT_SITE}"
+mkdir -p "${OUTPUT_SITE}"
+cp -a "${WORK_DIR}/." "${OUTPUT_SITE}/"
+rm -rf "${WORK_DIR}"
+
+grep -q staticrypt-html "${OUTPUT_SITE}/index.html"
 echo "Encryption verified."
