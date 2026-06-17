@@ -13,11 +13,11 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "dependencies": {
+    "staticrypt": "^3.5.4"
+  },
   "bugs": {
     "url": "https://github.com/pierrejorgensen/pierrejorgensen.github.io/issues"
   },
-  "homepage": "https://github.com/pierrejorgensen/pierrejorgensen.github.io#readme",
-  "devDependencies": {
-    "staticrypt": "^3.5.4"
-  }
+  "homepage": "https://github.com/pierrejorgensen/pierrejorgensen.github.io#readme"
 }

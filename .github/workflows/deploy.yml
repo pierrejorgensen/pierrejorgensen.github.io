@@ -39,6 +39,8 @@ jobs:
           cache: npm
 
       - name: Install Node dependencies
+        env:
+          NODE_ENV: development
         run: npm ci
 
       - name: Encrypt HTML pages
