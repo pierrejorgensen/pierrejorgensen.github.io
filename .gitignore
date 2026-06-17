@@ -1,0 +1,7 @@
+node_modules/
+_site/
+.env
+.DS_Store
+Assets/.DS_Store
+Assets/index/.DS_Store
+Assets/work-fitness-tracking-application/.DS_Store
