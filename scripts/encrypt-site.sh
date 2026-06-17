@@ -44,6 +44,8 @@ fi
 
 echo "Encrypting ${HTML_COUNT} HTML file(s)..."
 
+chmod -R u+w "${SITE_DIR}"
+
 STATICRYPT_ARGS=(
   --short
   --template-title "Per Pierre Jorgensen"
