@@ -17,8 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      STATICRYPT_PASSWORD: unicorn
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,9 +31,7 @@ jobs:
         uses: actions/jekyll-build-pages@v1
 
       - name: Verify Jekyll output
-        run: |
-          test -f _site/index.html
-          find _site -name '*.html' | wc -l
+        run: test -f _site/index.html
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -45,20 +44,24 @@ jobs:
           NODE_ENV: development
         run: npm ci
 
-      - name: Verify StatiCrypt install
-        run: test -f node_modules/staticrypt/cli/index.js
-
-      - name: Verify StatiCrypt config
-        run: test -f .staticrypt.json
-
-      - name: Verify portfolio password is set
-        run: test -n "$STATICRYPT_PASSWORD"
-
       - name: Encrypt HTML pages
-        run: npm run encrypt
-
-      - name: Verify encrypted homepage
-        run: grep -q staticrypt-html _site/index.html
+        run: |
+          set -euxo pipefail
+          test -f node_modules/staticrypt/cli/index.js
+          shopt -s nullglob
+          site_entries=(_site/*)
+          node node_modules/staticrypt/cli/index.js "${site_entries[@]}" -r -d _site \
+            -p unicorn \
+            --short \
+            --template-title "Per Pierre Jorgensen" \
+            --template-instructions "Enter the portfolio password to view this page." \
+            --template-placeholder "Password" \
+            --template-button "Continue" \
+            --template-color-primary "#e3660e" \
+            --template-color-secondary "#f9f9f9" \
+            --template-error "Incorrect password." \
+            --remember 30
+          grep -q staticrypt-html _site/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
