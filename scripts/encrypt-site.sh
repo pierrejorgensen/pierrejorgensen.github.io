@@ -16,6 +16,14 @@ if [[ -z "${STATICRYPT_PASSWORD:-}" ]]; then
   exit 1
 fi
 
+HTML_COUNT="$(find "${SITE_DIR}" -name '*.html' | wc -l | tr -d ' ')"
+if [[ "${HTML_COUNT}" == "0" ]]; then
+  echo "No HTML files found under ${SITE_DIR}." >&2
+  exit 1
+fi
+
+echo "Encrypting ${HTML_COUNT} HTML file(s) in ${SITE_DIR}..."
+
 npx staticrypt "${SITE_DIR}"/* -r -d "${SITE_DIR}" \
   --short \
   --template-title 'Per "Pierre" Jørgensen' \
@@ -26,3 +34,10 @@ npx staticrypt "${SITE_DIR}"/* -r -d "${SITE_DIR}" \
   --template-color-secondary "#f9f9f9" \
   --template-error "Incorrect password." \
   --remember 30
+
+if ! grep -q 'staticrypt-html' "${SITE_DIR}/index.html"; then
+  echo "Encryption verification failed: ${SITE_DIR}/index.html is not password-protected." >&2
+  exit 1
+fi
+
+echo "Encryption verified."

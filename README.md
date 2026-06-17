@@ -8,10 +8,10 @@ The live site is encrypted with [StatiCrypt](https://github.com/robinmoisson/sta
 
 ### One-time GitHub setup
 
-1. In the repo on GitHub, open **Settings → Secrets and variables → Actions** and add a repository secret:
-   - Name: `STATICRYPT_PASSWORD`
-   - Value: your portfolio password
-2. Open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions** (not “Deploy from a branch”).
+1. Open **Settings → Pages**.
+2. Set **Build and deployment → Source** to **GitHub Actions** (not “Deploy from a branch”).
+3. In the **Workflow** dropdown, choose **Deploy password-protected site**.  
+   Do not leave the default **pages build and deployment / Jekyll** workflow selected — that publishes unencrypted HTML.
 
 After that, every push to `main` rebuilds and redeploys the password-protected site.
 
@@ -21,7 +21,7 @@ After that, every push to `main` rebuilds and redeploys the password-protected s
 npm install
 bundle install
 bundle exec jekyll build --destination _site
-export STATICRYPT_PASSWORD='your-password-here'
+export STATICRYPT_PASSWORD='unicorn'
 npm run encrypt
 ```
 

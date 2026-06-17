@@ -38,7 +38,7 @@ jobs:
 
       - name: Encrypt HTML pages
         env:
-          STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
+          STATICRYPT_PASSWORD: unicorn
         run: npm run encrypt
 
       - name: Upload artifact
