@@ -20,6 +20,8 @@ jobs:
     defaults:
       run:
         shell: bash
+    env:
+      STATICRYPT_PASSWORD: unicorn
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,7 +38,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: npm
 
       - name: Install Node dependencies
@@ -45,23 +47,7 @@ jobs:
         run: npm ci
 
       - name: Encrypt HTML pages
-        run: |
-          set -euxo pipefail
-          test -f node_modules/staticrypt/cli/index.js
-          shopt -s nullglob
-          site_entries=(_site/*)
-          node node_modules/staticrypt/cli/index.js "${site_entries[@]}" -r -d _site \
-            -p unicorn \
-            --short \
-            --template-title "Per Pierre Jorgensen" \
-            --template-instructions "Enter the portfolio password to view this page." \
-            --template-placeholder "Password" \
-            --template-button "Continue" \
-            --template-color-primary "#e3660e" \
-            --template-color-secondary "#f9f9f9" \
-            --template-error "Incorrect password." \
-            --remember 30
-          grep -q staticrypt-html _site/index.html
+        run: npm run encrypt
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
