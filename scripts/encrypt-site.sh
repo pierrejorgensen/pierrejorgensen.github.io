@@ -24,7 +24,15 @@ fi
 
 echo "Encrypting ${HTML_COUNT} HTML file(s) in ${SITE_DIR}..."
 
-npx staticrypt "${SITE_DIR}"/* -r -d "${SITE_DIR}" \
+shopt -s nullglob
+site_entries=("${SITE_DIR}"/*)
+if ((${#site_entries[@]} == 0)); then
+  echo "No files matched ${SITE_DIR}/* for encryption." >&2
+  find "${SITE_DIR}" -maxdepth 2 -type f | head -20 >&2 || true
+  exit 1
+fi
+
+npx staticrypt "${site_entries[@]}" -r -d "${SITE_DIR}" \
   --short \
   --template-title 'Per "Pierre" Jørgensen' \
   --template-instructions "Enter the portfolio password to view this page." \
