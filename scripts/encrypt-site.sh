@@ -32,7 +32,18 @@ if ((${#site_entries[@]} == 0)); then
   exit 1
 fi
 
-npx staticrypt "${site_entries[@]}" -r -d "${SITE_DIR}" \
+STATICRYPT_BIN="${ROOT_DIR}/node_modules/.bin/staticrypt"
+if [[ ! -x "${STATICRYPT_BIN}" ]]; then
+  echo "StatiCrypt binary not found. Run npm ci first." >&2
+  exit 1
+fi
+
+if [[ ! -f "${ROOT_DIR}/.staticrypt.json" ]]; then
+  echo "Missing ${ROOT_DIR}/.staticrypt.json" >&2
+  exit 1
+fi
+
+"${STATICRYPT_BIN}" "${site_entries[@]}" -r -d "${SITE_DIR}" \
   --short \
   --template-title 'Per "Pierre" Jørgensen' \
   --template-instructions "Enter the portfolio password to view this page." \
@@ -43,8 +54,8 @@ npx staticrypt "${site_entries[@]}" -r -d "${SITE_DIR}" \
   --template-error "Incorrect password." \
   --remember 30
 
-if ! grep -q 'staticrypt-html' "${SITE_DIR}/index.html"; then
-  echo "Encryption verification failed: ${SITE_DIR}/index.html is not password-protected." >&2
+if ! grep -rl 'staticrypt-html' "${SITE_DIR}" --include='*.html' -q; then
+  echo "Encryption verification failed: no password-protected HTML found under ${SITE_DIR}." >&2
   exit 1
 fi
 

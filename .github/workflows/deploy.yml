@@ -21,23 +21,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-          bundler-cache: true
-
       - name: Setup Pages
-        id: pages
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
+        uses: actions/jekyll-build-pages@v1
 
       - name: Verify Jekyll output
-        run: test -f _site/index.html
+        run: |
+          test -f _site/index.html
+          find _site -name '*.html' | wc -l
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -51,7 +44,10 @@ jobs:
       - name: Encrypt HTML pages
         env:
           STATICRYPT_PASSWORD: unicorn
-        run: npm run encrypt
+        run: |
+          set -euxo pipefail
+          npm run encrypt
+          grep -q staticrypt-html _site/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
