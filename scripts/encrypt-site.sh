@@ -53,10 +53,9 @@ fi
 
 node "${STATICRYPT_CLI}" "${site_entries[@]}" -r -d "${SITE_DIR}" \
   --short \
-  --template-title "Per Pierre Jorgensen" \
-  --template-instructions "Enter the portfolio password to view this page." \
+  --template "${ROOT_DIR}/staticrypt/password_template.html" \
   --template-placeholder "Password" \
-  --template-button "Continue" \
+  --template-button "Come on in >" \
   --template-color-primary "#e3660e" \
   --template-color-secondary "#f9f9f9" \
   --template-error "Incorrect password." \
