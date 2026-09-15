@@ -219,6 +219,11 @@ main>* {
   min-width: 0;
 }
 
+.prose.full-width {
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
 main>.full-width,
 main>.splits:has(.full-width) {
   grid-column: 1 / -1;
@@ -601,6 +606,10 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
 }
 
 @media screen and (max-width: 860px) {
+
+  .prose.full-width {
+    padding: 1rem;
+  }
 
   .prose:has(> .pull-left),
   .prose:has(> .pull-right) {
