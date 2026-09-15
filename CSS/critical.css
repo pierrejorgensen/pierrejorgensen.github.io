@@ -1,0 +1,283 @@
+/* Inlined for first paint (header, layout, typography). Full rules in styley.css. */
+
+:root {
+  --color-text: #000;
+  --color-accent: #e3660e;
+  --color-accent-hover: #b14f09;
+  --color-muted: #999;
+  --color-background: #fff;
+  --color-surface: #f9f9f9;
+  --color-surface-muted: #f6f6f6;
+  --color-border: #666;
+  --color-border-light: #eee;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-strong: rgba(0, 0, 0, 0.2);
+
+  --width-site-max: 72rem;
+  --width-prose: 56rem;
+  --width-contact: 13rem;
+  --width-half: 50%;
+}
+
+html {
+  font: 14px Inter, "Helvetica Neue", sans-serif;
+  color: var(--color-text);
+}
+
+body {
+  margin: 0;
+}
+
+@media screen and (max-width: 460px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--color-accent-hover);
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+h1 {
+  grid-area: heading;
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -.075rem;
+  transition: font-size .5s;
+}
+
+h1 a:link, h1 a:visited, h1 a:hover, h1 a:focus, h1 a:active {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+h2, h3 {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+  letter-spacing: -.05rem;
+}
+
+@media screen and (max-width: 580px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  margin: 2rem 0 .25rem 0;
+  font-size: 1.5rem;
+}
+
+ul {
+  padding-right: 0;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+p, li {
+  line-height: 150%;
+}
+
+p {
+  margin: 0;
+  padding: 0 0 15px 0;
+}
+
+header {
+  max-width: var(--width-site-max);
+  margin: 6rem auto 0 auto;
+  padding: 0 2rem;
+  font-weight: normal;
+  display: grid;
+  grid-template-areas:
+    "heading contact"
+    "tag-line tag-line";
+  grid-template-columns: 1fr var(--width-contact);
+  align-items: end;
+}
+
+header #tag-line {
+  grid-area: tag-line;
+  margin: -.5rem 0 0 0;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+header #tag-line span {
+  color: var(--color-muted);
+  font-weight: 200;
+}
+
+header #contact {
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: .5rem 0 0 0;
+  border-top: 3px solid var(--color-accent);
+  padding: .25rem 0 .35rem 0;
+}
+
+header #contact a {
+  color: var(--color-text);
+}
+
+@media screen and (max-width: 860px) {
+  header {
+    grid-template-areas:
+      "contact"
+      "heading"
+      "tag-line";
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+
+  header h1 {
+    margin-top: 2rem;
+  }
+
+  header #contact {
+    width: var(--width-contact);
+  }
+}
+
+@media screen and (max-width: 630px) {
+  header h1 {
+    font-size: 3rem;
+  }
+
+  header #tag-line {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  header #contact {
+    width: 15rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  header h1 {
+    font-size: 2.25rem;
+  }
+
+  header #tag-line {
+    margin-top: 0;
+  }
+}
+
+footer {
+  max-width: var(--width-site-max);
+  margin: 4rem auto 2rem auto;
+  padding: 0 2rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  padding: 1rem 0 0 0;
+  border-top: 3px solid var(--color-accent);
+}
+
+footer a:link,
+footer a:visited {
+  color: var(--color-text);
+}
+
+footer a:hover {
+  color: var(--color-accent-hover);
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min(var(--width-prose), 100%) minmax(0, 1fr);
+  width: 100%;
+  max-width: none;
+  margin: 4rem 0 0 0;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+main > * {
+  grid-column: 2;
+}
+
+.prose, .three-step, .four-step {
+  margin-bottom: 2rem;
+}
+
+.prose {
+  grid-column: 2;
+  display: flow-root;
+}
+
+ul.worky-works {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.worky-works li {
+  margin: 0 0 1rem 0;
+  background: none var(--color-surface);
+}
+
+ul.worky-works a {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+  padding: 2rem;
+  position: relative;
+  align-items: center;
+  min-height: 205px;
+  overflow: hidden;
+  color: var(--color-text);
+  text-decoration: none;
+  box-shadow: none;
+  transition: box-shadow .5s;
+}
+
+ul.worky-works li:nth-child(even) a {
+  flex-direction: row-reverse;
+}
+
+ul.worky-works img {
+  display: block;
+  width: var(--width-half);
+  margin: 0;
+  box-shadow: 0 0 1rem 0 var(--color-shadow-strong);
+  transition: box-shadow .5s;
+}
+
+ul.worky-works h3 {
+  margin-top: 0;
+}
+
+ul.worky-works p {
+  padding-bottom: 0;
+}
