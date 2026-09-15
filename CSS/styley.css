@@ -2,7 +2,7 @@
   --color-text: #000;
   --color-accent: #4a6e90;
   --color-accent-hover: #314559;
-  --color-muted: #e5e0d8;
+  --color-muted: #606161;
   --color-background: #fff;
   --color-surface: #f9f9f9;
   --color-surface-muted: #e5e0d8;
@@ -108,10 +108,39 @@ footer {
   text-align: center;
 }
 
+.footer-logo {
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-logo a:hover {
+  text-decoration: none;
+}
+
+.footer-logo svg {
+  display: block;
+  width: 14rem;
+  height: auto;
+  margin-inline: auto;
+}
+
+.footer-logo .logo-filled__mountain {
+  fill: var(--color-accent);
+}
+
+.footer-logo .logo-filled__mountain-overlap,
+.footer-logo .logo-filled__wordmark {
+  fill: var(--color-accent-hover);
+}
+
 footer p {
   margin: 0;
   padding: 1rem 0 0 0;
-  border-top: 3px solid var(--color-accent);
 }
 
 footer a:link,
