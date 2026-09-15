@@ -219,7 +219,7 @@ main>* {
   min-width: 0;
 }
 
-.prose.full-width {
+.prose.full-width > .image-group.image-caption-group.pull-right {
   padding: 3rem;
   box-sizing: border-box;
 }
@@ -607,7 +607,7 @@ main img, main .tr-caption-container, .Image img, .item-thumbnail img {
 
 @media screen and (max-width: 860px) {
 
-  .prose.full-width {
+  .prose.full-width > .image-group.image-caption-group.pull-right {
     padding: 1rem;
   }
 
