@@ -4,7 +4,15 @@
   "description": "Portfolio site",
   "scripts": {
     "build": "bash scripts/build-site.sh",
-    "encrypt": "bash scripts/encrypt-site.sh"
+    "encrypt": "bash scripts/encrypt-site.sh",
+    "google:auth": "node scripts/google/auth.js",
+    "google:test": "node scripts/google/test-connection.js",
+    "google:slides": "node scripts/google/create-presentation.js",
+    "google:find": "node scripts/google/find-presentation.js",
+    "google:read": "node scripts/google/read-presentation.js",
+    "google:export": "node scripts/google/export-presentation.js",
+    "google:build": "node scripts/google/build-case-study.js",
+    "google:update": "node scripts/google/update-slides.js --from 6"
   },
   "repository": {
     "type": "git",
@@ -18,7 +26,13 @@
     "node": ">=24"
   },
   "dependencies": {
+    "dotenv": "^16.6.1",
+    "googleapis": "^150.0.1",
+    "open": "^10.2.0",
     "staticrypt": "^3.5.4"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "^5.2.8"
   },
   "bugs": {
     "url": "https://github.com/pierrejorgensen/pierrejorgensen.github.io/issues"
